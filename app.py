@@ -246,7 +246,7 @@ json_file = open("model.json", 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 model = model_from_json(loaded_model_json)
-model.load_weights("Weigths-600-0.3901.hdf5")
+model.load_weights("Weigths-599-0.4134.hdf5")
 #model.summary()
 load_full_model(model)
 
