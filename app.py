@@ -4,6 +4,7 @@ from pymessenger.bot import Bot
 
 from keras.models import load_model, Model
 from keras.layers import Input, LSTM, Dense
+from keras.models import model_from_json
 import re
 import numpy as np
 
@@ -237,7 +238,13 @@ def decode_response(test_input):
         states_value = [hidden_state, cell_state]
     return decoded_sentence
 
-model = load_model('model600.h5')
+#model = load_model('model600.h5')
+json_file = open("model.json", 'r')
+loaded_model_json = json_file.read()
+json_file.close()
+model = model_from_json(loaded_model_json)
+model.load_weights("weigths600.h5")
+#model.summary()
 load_full_model(model)
 
 # Add description here about this if statement.
